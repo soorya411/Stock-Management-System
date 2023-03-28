@@ -1,0 +1,46 @@
+from django.urls import path
+
+from sms import views
+
+urlpatterns=[
+    path('', views.mainpg, name='mainpg'),
+    path('logincode', views.logincode, name='logincode'),
+    path('add_prod', views.add_prod, name='add_prod'),
+    path('dis_reg', views.dis_reg, name='dis_reg'),
+    path('admin_hom', views.admin_hom, name='admin_hom'),
+    path('bill_pg', views.bill_pg, name='bill_pg'),
+    path('complt_pg', views.complt_pg, name='complt_pg'),
+    path('dis_hom', views.dis_hom, name='dis_hom'),
+    path('feedb_pg', views.feedb_pg, name='feedb_pg'),
+    path('fdbk', views.fdbk, name='fdbk'),
+    path('mng_shop', views.mng_shop, name='mng_shop'),
+    path('odr_pg', views.odr_pg, name='odr_pg'),
+    path('prd_list', views.prd_list, name='prd_list'),
+    path('rply_pg/<int:id>', views.rply_pg, name='rply_pg'),
+    path('rpt', views.rpt, name='rpt'),
+    path('sendreply', views.sendreply, name='sendreply'),
+    path('retn', views.retn, name='retn'),
+    path('sale_list', views.sale_list, name='sale_list'),
+    path('send_fb', views.send_fb, name='send_fb'),
+    path('shop_hom', views.shop_hom, name='shop_hom'),
+    path('shop_reg', views.shop_reg, name='shop_reg'),
+    path('shop_add_prd', views.shop_add_prd, name='shop_add_prd'),
+    path('shop_prd', views.shop_prd, name='shop_prd'),
+    path('shop_list', views.shop_list, name='shop_list'),
+    path('view_dis', views.view_dis, name='view_dis'),
+    path('view_shop', views.view_shop, name='view_shop'),
+    path('shoprpt', views.shoprpt, name='shoprpt'),
+    path('logins', views.logins, name='logins'),
+    path('viewodr', views.viewodr, name='viewodr'),
+    path('disbtr', views.disbtr, name='disbtr'),
+    path('shpownr', views.shpownr, name='shpownr'),
+    path('prdct', views.prdct, name='prdct'),
+    path('accept/<int:id>', views.accept, name='accept'),
+    path('reject/<int:id>', views.reject, name='reject'),
+    path('acceptshop/<int:id>', views.acceptshop, name='acceptshop'),
+    path('rejectshop/<int:id>', views.rejectshop, name='rejectshop'),
+    # path('editshop/<int:id>', views.editshop, name='editshop'),
+    # path('deleteshop/<int:id>', views.deleteshop, name='deleteshop'),
+
+
+]

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="shop_add_prd">
+  <table width="260" border="1">
+    <tr>
+      <td width="51">product name </td>
+      <td width="52">category</td>
+      <td width="30">price</td>
+      <td width="47">quantity</td>
+      <td width="47">image</td>
+      <td></td>
+      
+    </tr>
+    {% for  i in val %}
+    <tr>
+      <td>{{i.name}}</td>
+      <td>{{i.category}}</td>
+      <td>{{i.price}}</td>
+      <td>{{i.quantity}}</td>
+      <td>{{i.image}}</td>
+      <td><p><a href="#">edit</a></p>
+      <p><a href="#">delete</a></p></td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="5"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" />
+          </div>
+      </label></td>
+    </tr>
+   
+  </table>
+  <p>
+    <label></label>
+  </p>
+</form>
+</body>
+</html>
