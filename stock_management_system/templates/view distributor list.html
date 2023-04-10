@@ -13,7 +13,7 @@
       <td>location</td>
       <td>contact</td>
       <td>email</td>
-      <td></td>
+      <td>proof</td>
       
       </tr>
 
@@ -23,12 +23,12 @@
       <td>{{i.location}}</td>
       <td>{{i.mobile_number}}</td>
       <td>{{i.email}}</td>
+      <td><img src="../media/{{i.image}}" height="100" width="100" alt=""/></td>
       <td>
-        
         {% if i.lid.type == 'pending' %}
-        
         <p><a href="{% url 'accept' id=i.lid.id %}">accept</a></p>
-      <p><a href="{% url 'reject' id=i.lid.id %}">reject</a></p>
+
+        <p><a href="{% url 'reject' id=i.lid.id %}">reject</a></p>
       {% elif i.lid.type == 'reject' %}REJECTED
       {% else %}ACCEPTED
       {% endif %}

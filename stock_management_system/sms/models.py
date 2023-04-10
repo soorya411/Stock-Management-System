@@ -1,3 +1,5 @@
+from unicodedata import category
+
 from django.db import models
 
 # Create your models here.
@@ -34,24 +36,35 @@ class feedback(models.Model):
     sid = models.ForeignKey(shop_registration, on_delete=models.CASCADE)
     feedback=models.CharField(max_length=100)
     date=models.DateField()
+class category(models.Model):
+    name = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
 class product(models.Model):
     name=models.CharField(max_length=100)
-    category=models.CharField(max_length=100)
+    # category=models.CharField(max_length=100)
     quantity=models.CharField(max_length=90)
     price=models.IntegerField()
+    stock = models.IntegerField()
     Tax=models.CharField(max_length=50)
     image=models.FileField()
+    did = models.ForeignKey(dis_registration, on_delete=models.CASCADE)
+    cid = models.ForeignKey(category, on_delete=models.CASCADE)
+
 class shop_product(models.Model):
     name=models.CharField(max_length=100)
     category=models.CharField(max_length=100)
     quantity=models.CharField(max_length=90)
     price=models.IntegerField()
+
     Tax=models.CharField(max_length=50)
     image=models.FileField()
+
+
 class order(models.Model):
+    date = models.DateField()
     pid = models.ForeignKey(product, on_delete=models.CASCADE)
     sid = models.ForeignKey(shop_registration, on_delete=models.CASCADE)
-    date=models.DateField()
+
     orderstatus=models.CharField(max_length=100)
 class returnlist(models.Model):
     oid = models.ForeignKey(order, on_delete=models.CASCADE)

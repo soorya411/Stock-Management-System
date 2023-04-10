@@ -7,13 +7,21 @@
 
 <body>
 <form id="form1" name="form1" method="post" action="add_prod">
-  <table width="260" border="1">
+  <table width="260" border="1" align="center">
     <tr>
-      <td width="51">product name </td>
-      <td width="52">category</td>
-      <td width="30">price</td>
-      <td width="47">quantity</td>
-      <td width="47">image</td>
+      <td colspan="7"><label>
+        <div align="right">
+          <input type="submit" name="Submit" value="Add" />
+          </div>
+      </label></td>
+    </tr>
+    <tr>
+      <td width="51"><div align="center"> product name </div></td>
+      <td width="52"><div align="center">category</div></td>
+      <td width="30"><div align="center">price</div></td>
+      <td width="47"><div align="center">quantity</div></td>
+      <td width="47"><div align="center">stock count</div></td>
+      <td width="47"><div align="center">image</div></td>
       <td></td>
       
     </tr>
@@ -23,23 +31,15 @@
       <td>{{i.category}}</td>
       <td>{{i.price}}</td>
       <td>{{i.quantity}}</td>
+      <td>{{i.stock}}</td>
       <td><img src="../media/{{i.image}}" height="100" width="100" alt=""/></td>
-      <td><p><a href="#">edit</a></p>
-      <p><a href="#">delete</a></p></td>
+      <td><p><a href="{% url 'update_prod' id=i.id %}">edit</a></p>
+      <p><a href="{% url 'delete_prod' id=i.id %}">delete</a></p></td>
     </tr>
     {% endfor %}
-    <tr>
-      <td colspan="5"><label>
-        <div align="center">
-          <input type="submit" name="Submit" value="Add" />
-          </div>
-      </label></td>
-    </tr>
-   
+
   </table>
-  <p>
-    <label></label>
-  </p>
+
 </form>
 </body>
 </html>

@@ -5,11 +5,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from sms.models import *
 def mainpg(request):
-    return render(request, 'adminindex.html')
+    return render(request, 'homindex.html')
 
 
 def logincode(request):
-    return render(request, 'index.html')
+    return render(request, 'loginindex.html')
 
 def logins(request):
     username = request.POST['textfield']
@@ -28,7 +28,52 @@ def logins(request):
             return HttpResponse('''<script>alert("Invalid username or password");window.location='/logincode'</script>''')
     except:
             return HttpResponse('''<script>alert("Invalid username or password");window.location='/logincode'</script>''')
+def update_prod(request,id):
+    ob=product.objects.get(id=id)
+    request.session['prid']=id
+    return render(request, 'edit_delete product.html',{'val':ob})
+def update(request):
+    try:
 
+        Product_Name = request.POST['textfield']
+        Category = request.POST['select']
+        Quantity = request.POST['textfield2']
+        Tax = request.POST['textfield3']
+        Price = request.POST['textfield4']
+        image = request.FILES['file']
+        fn = FileSystemStorage()
+        fs = fn.save(image.name, image)
+        iob = product.objects.get(id=request.session['prid'])
+        iob.name = Product_Name
+        iob.category = Category
+        iob.quantity = Quantity
+        iob.Tax = Tax
+        iob.price = Price
+        iob.image = fs
+        iob.save()
+        return HttpResponse('''<script>alert("update product");window.location='/prd_list'</script>''')
+    except:
+        Product_Name = request.POST['textfield']
+        Category = request.POST['select']
+        Quantity = request.POST['textfield2']
+        Tax = request.POST['textfield3']
+        Price = request.POST['textfield4']
+
+        iob = product.objects.get(id=request.session['prid'])
+        iob.name = Product_Name
+        iob.category = Category
+        iob.quantity = Quantity
+        iob.Tax = Tax
+        iob.price = Price
+
+        iob.save()
+        return HttpResponse('''<script>alert("update product");window.location='/prd_list'</script>''')
+
+
+def delete_prod(request,id):
+    ob=product.objects.get(id=id)
+    ob.delete()
+    return HttpResponse('''<script>alert("product deleted");window.location='/prd_list'</script>''')
 def add_prod(request):
     return render(request, 'add product.html')
 
@@ -50,10 +95,11 @@ def prdct(request):
     iob.image=fs
     iob.save()
     return HttpResponse('''<script>alert("product added");window.location='/prd_list'</script>''')
-
+def ctgry(request):
+    return render(request, 'category.html')
     
 def dis_reg(request):
-    return render(request, 'index1.html')
+    return render(request, 'reg distributor index.html')
 def disbtr(request):
     Name = request.POST['textfield']
     Place = request.POST['textfield2']
@@ -61,9 +107,9 @@ def disbtr(request):
     Mobile = request.POST['textfield4']
     username = request.POST['textfield5']
     password = request.POST['textfield6']
-    # image = request.FILES['file']
-    # fn = FileSystemStorage()
-    # fs = fn.save(image.name,image)
+    image = request.FILES['file']
+    fn = FileSystemStorage()
+    fs = fn.save(image.name,image)
     ob = login()
     ob.username=username
     ob.password=password
@@ -75,7 +121,7 @@ def disbtr(request):
     iob.mobile_number=Mobile
     iob.email=Email
     iob.lid=ob
-    iob.image='0'
+    iob.image=fs
     iob.save()
     return HttpResponse('''<script>alert("successfully registered!");window.location='/dis_hom'</script>''')
 
@@ -122,7 +168,7 @@ def mng_shop(request):
 def odr_pg(request):
     return  render(request, 'order.html')
 def prd_list(request):
-    ob=product.objects.all()
+    ob=product.objects.filter(did__lid__id=request.session['lid'])
     return render(request, 'product list.html',{'val':ob})
     
 # def edit(request):
@@ -151,7 +197,7 @@ def shop_hom(request):
     return render(request, 'shop home page.html')
 def shop_reg(request):
 
-    return render(request, 'index2.html')
+    return render(request, 'reg shop index.html')
    
 
 def shpownr(request):
@@ -161,9 +207,9 @@ def shpownr(request):
     mobile = request.POST['textfield4']
     username = request.POST['textfield5']
     password = request.POST['textfield6']
-    #image = request.FILES['file']
-    #fn = FileSystemStorage()
-    #fs = fn.save(image.name, image)
+    image = request.FILES['file']
+    fn = FileSystemStorage()
+    fs = fn.save(image.name, image)
     ob = login()
     ob.username = username
     ob.password = password
@@ -175,7 +221,7 @@ def shpownr(request):
     iob.email = email
     iob.mobile_number = mobile
     iob.lid = ob
-    iob.image = 0
+    iob.image = fs
     iob.save()
     return HttpResponse('''<script>alert("successfully registered!");window.location='/'</script>''')
 

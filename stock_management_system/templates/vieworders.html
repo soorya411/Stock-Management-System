@@ -9,20 +9,22 @@
 <form id="form1" name="form1" method="post" action="">
   <table width="200" border="1">
     <tr>
+      <td>date</td>
       <td>shop name</td>
       <td>product name </td>
       <td>qty</td>
       <td>price</td>
-      <td>date</td>
+
       <td>status</td>
     </tr>
     {% for  i in val %}
     <tr>
+      <td>{{i.date}}</td>
       <td>{{i.sid.name}}</td>
       <td>{{i.pid.name}}</td>
       <td>{{i.pid.quantity}}</td>
       <td>{{i.pid.price}}</td>
-      <td>{{i.date}}</td>
+
       <td>{{i.orderstatus}}</td>
     </tr>
     {% endfor %}
