@@ -1,22 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+{% extends 'adminhomeindex.html' %}
+
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="200" border="1">
+  <table  class="table table-dark table-striped">
     <tr>
       <td>distributor name </td>
       <td>location</td>
       <td>contact</td>
       <td>email</td>
       <td>proof</td>
-      
       </tr>
-
     {% for  i in val %}
     <tr>
       <td>{{i.name}}</td>
@@ -27,7 +21,6 @@
       <td>
         {% if i.lid.type == 'pending' %}
         <p><a href="{% url 'accept' id=i.lid.id %}">accept</a></p>
-
         <p><a href="{% url 'reject' id=i.lid.id %}">reject</a></p>
       {% elif i.lid.type == 'reject' %}REJECTED
       {% else %}ACCEPTED
@@ -37,11 +30,9 @@
     </td>
     </tr>
     {% endfor %}
-    <tr>
+
+
   </table>
-  <p>
-    <label></label>
-  </p>
-</form>
+  </form>
 </body>
 </html>
