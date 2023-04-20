@@ -14,7 +14,7 @@
 <body class="form-v5">
 	<div class="page-content">
 		<div class="form-v5-content">
-			<form class="form-detail" action="disbtr" method="post">
+			<form class="form-detail" action="disbtr" method="post" enctype="multipart/form-data">
 				<h2>Distributor Register </h2>
 				<div class="form-row">
 					<label for="full-name">Full Name</label>
@@ -50,6 +50,11 @@
 					<label for="password">Password</label>
 					<input type="password" name="textfield6" id="password" class="input-text" placeholder="Your Password" required>
 					<i class="fas fa-lock"></i>
+				</div>
+				<div class="form-row">
+				 <label for="password">Proof</label>
+				 <input class="form-control form-control-lg" id="formFileLg" type="file" name="file" />
+                <div class="small text-muted mt-2">Upload your proof.</div>
 				</div>
 				<div class="form-row-last">
 					<input type="submit" name="register" class="register" value="Register">

@@ -22,9 +22,9 @@
       <td><label>
         <div align="right">
           <select name="select">
-            <option>Ice cream</option>
-            <option>Biscuit</option>
-            <option>Chocolate</option>
+           {% for i in val %}
+             <option value="{{i.id}}">{{i.category_name}}</option>
+            {% endfor %}
           </select>
           </div>
       </label></td>
@@ -36,7 +36,7 @@
       </label></td>
     </tr>
     <tr>
-      <td>Tax %</td>
+      <td>MRP</td>
       <td><label>
         <input type="text" name="textfield3" />
       </label></td>
@@ -50,7 +50,7 @@
      <tr>
       <td>Stock count</td>
       <td><label>
-        <input type="text" name="textfield4" />
+        <input type="text" name="textfield5" />
       </label></td>
     </tr>
     <tr>

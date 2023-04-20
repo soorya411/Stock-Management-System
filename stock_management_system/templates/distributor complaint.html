@@ -27,15 +27,15 @@
       <td>{{i.complaint}}</td>
 
       
-      <td>{{i.reply}}
+      <td>
         
-<!--        {% if i.reply == 'pending' %}-->
+        {% if i.reply == 'pending' %}
         
-<!--        <a href="{% url 'rply_pg' id=i.id %}">reply</a>-->
+        <a href="{% url 'rply_pg' id=i.id %}">reply</a>
       
       
-<!--      {% else %} REPLIED-->
-<!--      {% endif %}-->
+      {% else %} REPLIED
+      {% endif %}
       </td>
     </tr>
     {% endfor %}

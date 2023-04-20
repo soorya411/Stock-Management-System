@@ -5,16 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-<form id="form1" name="form1" method="post"  enctype="multipart/form-data"    action="ctgry">
+<form id="form1" name="form1" method="post" action="addcat">
   <table width="200" border="1">
-<tr>
-      <td>Category</td>
-      <td><label>
-        <div align="right">
-          <select name="select">
-
-          </select>
-          </div>
+       <tr>
+      <td colspan="2"><div align="center">Add Category </div></td>
+    </tr>
+    <tr>
+      <td><label>Category Name
+          <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+      <tr>
+      <td><label>GST %
+          <input type="text" name="textfield2" />
+      </label></td>
+    </tr>
+    <tr>
+      <td><label>Discription
+          <textarea name="textarea"></textarea>
+      </label></td>
+    </tr>
+      <tr>
+      <td colspan="2"><label>
+       <div align="center">
+         <input type="submit" name="Submit" value="Add Category" />
+        </div>
       </label></td>
     </tr>
   </table>

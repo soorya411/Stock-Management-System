@@ -25,14 +25,13 @@
 
 
       <td>
-        {% if i.lid.type == 'pending' %}
-        <p><a href="{% url 'accept' id=i.lid.id %}">accept</a></p>
-        <p><a href="{% url 'reject' id=i.lid.id %}">reject</a></p>
-      {% elif i.lid.type == 'reject' %}REJECTED
-      {% else %}ACCEPTED
-      {% endif %}
-    
-    
+        {% if i.lid.type == 'distributor' %}
+
+        <p><a href="{% url 'block' id=i.lid.id %}">BLOCK</a></p>
+        {% else %}
+        <p><a href="{% url 'unblock' id=i.lid.id %}">UNBLOCK</a></p>
+        {% endif %}
+
     </td>
     </tr>
     {% endfor %}

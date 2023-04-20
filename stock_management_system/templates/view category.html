@@ -7,20 +7,17 @@
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="200" border="1">
+  <table width="200" border="1" >
     <tr>
-      <td>Date</td>
-      <td>Shop Name</td>
-
-      <td>Feedback</td>
-
+      <td>category_name </td>
+      <td>GST </td>
+      <td>discription</td>
     </tr>
     {% for  i in val %}
     <tr>
-      <td>{{i.date}}</td>
-      <td>{{i.sid.name}}</td>
-      <td>{{i.feedback}}</td>
-
+      <td>{{i.category_name}}</td>
+      <td>{{i.GST}}</td>
+      <td>{{i.discription}}</td>
     </tr>
     {% endfor %}
   </table>

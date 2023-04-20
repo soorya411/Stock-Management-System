@@ -14,8 +14,9 @@
       <td>product name </td>
       <td>qty</td>
       <td>price</td>
+      <td>count</td>
 
-      <td>status</td>
+
     </tr>
     {% for  i in val %}
     <tr>
@@ -24,8 +25,16 @@
       <td>{{i.pid.name}}</td>
       <td>{{i.pid.quantity}}</td>
       <td>{{i.pid.price}}</td>
+      <td>{{i.Count}}</td>
+ <td>
+     {% if i.orderstatus == 'pending' %}
+        <p><a href="{% url 'acceptorder' id=i.id %}">accept</a></p>
+        <p><a href="{% url 'rejectorder' id=i.id %}">reject</a></p>
+     {% elif i.orderstatus == 'reject' %}rejected
+     {% else %}accepted
+     {% endif %}
 
-      <td>{{i.orderstatus}}</td>
+    </td>
     </tr>
     {% endfor %}
   </table>

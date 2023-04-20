@@ -4,16 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-{% extends 'adminhomeindex.html' %}
 <body>
 <form id="form1" name="form1" method="post" action="shop_reg">
- <table  class="table table-dark table-striped">
+ <table width="200" border="1" >
     <tr>
-      <td>shop name </td>
-      <td>location</td>
-      <td>contact</td>
-      <td>email</td>
-      <td>proof</td>
+      <td>Shop Name </td>
+      <td>Location</td>
+      <td>Contact</td>
+      <td>Email</td>
+      <td>Proof</td>
+      <td>Status</td>
+
     </tr>
 
     {% for  i in val %}
@@ -23,7 +24,7 @@
       <td>{{i.location}}</td>
       <td>{{i.mobile_number}}</td>
       <td>{{i.email}}</td>
-      <td><img src="../media/{{i.image}}" height="100" width="100" alt=""/></td>
+      <td><a href="{{i.image.url}}" width="100" height="100"><img src="{{i.image.url }}" width="100" height="100"/> </a></td>
       <td>
       {% if i.lid.type == 'pending' %}
         <p><a href="{% url 'acceptshop' id=i.lid.id %}">accept</a></p>

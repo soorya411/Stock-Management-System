@@ -19,6 +19,7 @@
       <td width="51"><div align="center"> product name </div></td>
       <td width="52"><div align="center">category</div></td>
       <td width="30"><div align="center">price</div></td>
+      <td width="30"><div align="center">MRP</div></td>
       <td width="47"><div align="center">quantity</div></td>
       <td width="47"><div align="center">stock count</div></td>
       <td width="47"><div align="center">image</div></td>
@@ -28,8 +29,9 @@
     {% for  i in val %}
     <tr>
       <td>{{i.name}}</td>
-      <td>{{i.category}}</td>
+      <td>{{i.cid.category_name}}</td>
       <td>{{i.price}}</td>
+      <td>{{i.MRP}}</td>
       <td>{{i.quantity}}</td>
       <td>{{i.stock}}</td>
       <td><img src="../media/{{i.image}}" height="100" width="100" alt=""/></td>
