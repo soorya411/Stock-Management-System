@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post"  enctype="multipart/form-data"    action="{% url 'update' %}">
+  <table width="200" border="1">
+    <tr>
+      <td colspan="2"><div align="center">Add product </div></td>
+    </tr>
+    <tr>
+      <td> Product Name  </td>
+      <td><label>
+        <input type="text" name="textfield"  value="{{val.name}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td><label>
+        <div align="right">
+          <select name="select">
+            <option {% if val.category == 'Ice cream' %} selected {% endif %}>Ice cream</option>
+            <option {% if val.category == 'Biscuit' %} selected {% endif %}>Biscuit</option>
+            <option {% if val.category == 'Chocolate' %} selected {% endif %}>Chocolate</option>
+          </select>
+          </div>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{val.quantity}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Tax %</td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{val.Tax}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><label>
+        <input type="text" name="textfield4" value="{{val.price}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input type="file" name="file" /><img src="{{ val.image.url}}" width="100" height="100"></img>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+       <div align="center">
+         <input type="submit" name="Submit" value="update" />
+        </div>
+      </label></td>
+    </tr>
+  </table>
+  <label></label>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>
