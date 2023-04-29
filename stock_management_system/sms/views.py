@@ -156,7 +156,7 @@ def reject(request,id):
     return HttpResponse('''<script>alert("successfully rejected!");window.location='/view_dis'</script>''')    
 
 def admin_hom(request):
-    return render(request, 'admin home page.html')
+    return render(request, 'adminhomeindex.html')
 def bill_pg(request):
     return render(request, 'bill.html')
 
@@ -266,7 +266,7 @@ def sale_list(request):
 def send_fb(request):
     return  render(request, 'sendfeedback.html')
 def shop_hom(request):
-    return render(request, 'shop home page.html')
+    return render(request, 'shophomeindex.html')
 def shop_reg(request):
     return render(request, 'reg shop index.html')
 def shpownr(request):

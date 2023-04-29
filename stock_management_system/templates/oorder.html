@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
 
+{% extends 'shophomeindex.html' %}
+
+{% block body %}
 
 <body>
 <form id="form1" name="form1" method="post" action="{% url 'orderproduct' %}">
@@ -26,4 +23,4 @@
 
 
 </body>
-</html>
+{% endblock %}
