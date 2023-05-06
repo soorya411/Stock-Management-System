@@ -1,0 +1,38 @@
+{% extends 'index3.html' %}
+{% block body %}
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+
+<canvas id="myChart" style="width:50%;max-height:500px"></canvas>
+
+<script>
+var xValues = [];
+{% for i in c %}
+xValues.push("{{i}}");
+{% endfor %}
+var yValues = {{s}};
+var barColors = "brown";
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "GRAPH",
+                      fontSize: 25
+    }
+  }
+});
+</script>
+
+</body>
+</html>
+{% endblock %}

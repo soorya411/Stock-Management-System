@@ -1,0 +1,28 @@
+{% extends 'index3.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="cmplt">
+  <div align="center">
+    <table width="200" border="1" class="table table-striped">
+      <tr>
+        <td>Product</td>
+        <td>price</td>
+        <td>distributer</td>
+        <td>stock</td>
+      </tr>
+      {% for  i in val %}
+      <tr>
+        <td>{{i.pid__name}}</td>
+        <td>{{i.pid__price}}</td>
+        <td>{{i.pid__did__name}}</td>
+        <td>{{i.sum}}</td>
+      </tr>
+       {% endfor %}
+
+
+      </table>
+  </div>
+</form>
+</body>
+{% endblock %}

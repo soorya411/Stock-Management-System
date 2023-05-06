@@ -1,22 +1,22 @@
-{% extends 'shophomeindex.html' %}
+{% extends 'index3.html' %}
 {% block body %}
+
 <body>
 <form id="form1" name="form1" method="post" action="searchandviewprdcts">
-  <table class="table table-striped">
-      <td colspan="3"><label>
-        DISTRIBUTOR
-            <div align="right">
-          <select name="select">
+  <table width="200" border="1" class="table table-striped">
+      <td colspan="6">         DISTRIBUTOR    :
+<label>
+            <center>
+          <select name="select"class="form-control" required style="width:400px;">
+            <option value="">SELECT</option>
             {% for i in val %}
-            <option value="{{i.id}}">{{i.name}}</option>
+            <option value="{{i.id}}" {% if i.id == d %}selected{% endif %}>{{i.name}}</option>
             {% endfor %}
           </select>
-          </div>
-      </label></td>
-      <td colspan="2"><label></label>
-        <label>
-        <input type="submit" name="Submit" value="Search">
-      </label></td>
+          </center>
+      </label>          <input type="submit" name="Submit" value="Search" class="btn btn-primary" style="width:100px;">
+</td>
+
     </tr>
     <tr>
       <td><label>
@@ -32,11 +32,11 @@
     {% for i in val1 %}
     <tr>
       <td>{{i.name}}</td>
-      <td><a href="{{i.image.url}}" width="100" height="100"><img src="{{i.image.url }}" width="100" height="100"/> </a></td>
+      <td><a href="{{i.image.url}}" width="100" height="100"><img src="{{i.image.url }}" style="border-radius: 50%;" width="100" height="100"/> </a></td>
       <td>{{i.price}}</td>
       <td>{{i.quantity}}</td>
       <td><label>
-        <div align="right"><a href="{% url 'odr_pg' id=i.id %}">order</a></div>
+        <div align="right"><a href="{% url 'odr_pg' id=i.id %}" class="btn btn-primary">Order Now</a></div>
       </label></td>
     </tr>
 

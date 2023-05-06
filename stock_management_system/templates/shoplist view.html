@@ -1,13 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+{% extends 'index1.html' %}
+{% block body %}
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="200" border="1" >
+  <table width="200" border="1" class="table table-striped">
     <tr>
       <td>shop name </td>
       <td>location </td>
@@ -16,13 +12,13 @@
     </tr>
     {% for  i in val %}
     <tr>
-      <td>{{i.sid.name}}</td>
-      <td>{{i.sid.location}}</td>
-      <td>{{i.sid.mobile_number}}</td>
-      <td>{{i.sid.email}}</td>
+      <td>{{i.sid__name}}</td>
+      <td>{{i.sid__location}}</td>
+      <td>{{i.sid__mobile_number}}</td>
+      <td>{{i.sid__email}}</td>
     </tr>
     {% endfor %}
   </table>
 </form>
 </body>
-</html>
+{% endblock %}

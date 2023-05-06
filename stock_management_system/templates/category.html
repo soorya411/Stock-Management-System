@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% extends 'index1.html' %}
+{% block body %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,23 +7,23 @@
 </head>
 <body>
 <form id="form1" name="form1" method="post" action="addcat">
-  <table width="200" border="1">
+  <table width="200" border="1" class="table table-striped">
        <tr>
       <td colspan="2"><div align="center">Add Category </div></td>
     </tr>
     <tr>
       <td><label>Category Name
-          <input type="text" name="textfield" />
+          <input type="text" name="textfield"  required/>
       </label></td>
     </tr>
       <tr>
       <td><label>GST %
-          <input type="text" name="textfield2" />
+          <input type="text" name="textfield2" required/>
       </label></td>
     </tr>
     <tr>
       <td><label>Discription
-          <textarea name="textarea"></textarea>
+          <textarea name="textarea" required></textarea>
       </label></td>
     </tr>
       <tr>
@@ -35,4 +36,4 @@
   </table>
 </form>
 </body>
-</html>
+{% endblock %}

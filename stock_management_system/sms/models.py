@@ -61,16 +61,17 @@ class shop_product(models.Model):
 
 class order(models.Model):
     date = models.DateField()
-
     pid = models.ForeignKey(product, on_delete=models.CASCADE)
     sid = models.ForeignKey(shop_registration, on_delete=models.CASCADE)
     orderstatus = models.CharField(max_length=100)
-    Count = models.CharField(max_length=100)
+    stock = models.CharField(max_length=100)
+    amt=models.CharField(max_length=1000)
 
 class returnlist(models.Model):
     oid = models.ForeignKey(order, on_delete=models.CASCADE)
     date = models.DateField()
     status = models.CharField(max_length=100)
+    reason=models.TextField()
 
 class bill(models.Model):
     sid = models.ForeignKey(shop_registration, on_delete=models.CASCADE)
@@ -80,6 +81,6 @@ class bill(models.Model):
 
 class billdetails(models.Model):
     bid = models.ForeignKey(bill, on_delete=models.CASCADE)
-    pid = models.ForeignKey(product, on_delete=models.CASCADE)
+    pid = models.ForeignKey(order, on_delete=models.CASCADE)
     quantity = models.CharField(max_length=100)
     status = models.CharField(max_length=100)

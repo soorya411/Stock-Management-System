@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% extends 'index1.html' %}
+{% block body %}
 <body>
 
 <form id="form1" name="form1" method="post" action="">
-  <table width="200" border="1">
+  <table width="200" border="1" class="table table-striped">
     <tr>
       <td>date</td>
       <td>shop name</td>
       <td>product name </td>
-      <td>qty</td>
+      <td>stock</td>
       <td>price</td>
-      <td>count</td>
-
-
+      <td>quantity</td>
     </tr>
     {% for  i in val %}
     <tr>
@@ -25,13 +19,16 @@
       <td>{{i.pid.name}}</td>
       <td>{{i.pid.quantity}}</td>
       <td>{{i.pid.price}}</td>
-      <td>{{i.Count}}</td>
+      <td>{{i.stock}}</td>
  <td>
      {% if i.orderstatus == 'pending' %}
         <p><a href="{% url 'acceptorder' id=i.id %}">accept</a></p>
         <p><a href="{% url 'rejectorder' id=i.id %}">reject</a></p>
      {% elif i.orderstatus == 'reject' %}rejected
-     {% else %}accepted
+     {% else %}
+     accepted<br>
+             <p><a href="{% url 'paymnt_1' id=i.id %}" class="btn btn-primary">PAYMENTS</a></p>
+
      {% endif %}
 
     </td>
@@ -40,4 +37,4 @@
   </table>
  </form>
 </body>
-</html>
+{% endblock %}

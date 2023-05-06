@@ -1,0 +1,40 @@
+{% extends "index3.html" %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'order_info' %}" enctype="multipart/form-data">
+  <table class="table table-striped" align="center">
+      <tr>
+      <td colspan="8"><center><a href="{{i.pid.image.url}}" width="150" height="100"><img style="border-radius: 50%;" src="{{i.pid.image.url }}" width="150" height="130"/> </a></center></td>
+    </tr>
+    <tr>
+      <th scope="row">PRODUCT</th>
+      <td>{{i.pid.name}}</td>
+    </tr>
+      <tr>
+      <th scope="row">PRICE</th>
+      <td>{{i.pid.MRP}}/-</td>
+    </tr>
+      <tr>
+      <th scope="row">QUANTITY</th>
+      <td>{{i.pid.quantity}}</td>
+    </tr>
+     <tr>
+      <th scope="row">STOCK</th>
+      <td>{{i.stock}}</td>
+    </tr>
+    <tr>
+      <th scope="row">ENTER QUANTITY:</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="qty" id="n2" required class="form-control"/></td>
+    </tr>
+    <tr align="center">
+      <td colspan="5"><input type="submit" name="button" id="button" value="NEXT" class="btn btn-primary" style="width:100px;" />
+      &nbsp;
+      <input type="submit" name="button" id="button2" value="FINISH" class="btn btn-primary" style="width:120px;" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

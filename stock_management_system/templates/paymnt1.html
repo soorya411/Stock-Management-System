@@ -1,0 +1,36 @@
+{% extends 'index1.html' %}
+{% block body %}
+<body>
+
+<form id="form1" name="form1" method="post" action="{% url 'paymnt_2' %}">
+  <table width="200" border="1" class="table table-striped">
+    <tr align="CENTER">
+        <td colspan="5"><a href="#"><H1>PAYMENT DETAILS</H1></a></td>
+    </tr>
+    <tr>
+      <td><a href="#">TOTAL AMOUNT</a></td><td style="width:200px;" class="form-control">{{tot}}/-</td>
+    </tr>
+    <tr>
+      <td><a href="#">PAYMENT STATUS</a></td><td style="width:200px;" class="form-control"> {% if val == 0 %}pending...{% else %} paid {% endif %}
+   </td>
+
+      {% if val == 0 %}  <td>PAYNOW<input type="text" name="amt1" class="form-control" style="width:200px;"> &nbsp;<br><input type="submit" name="amt" class="btn btn-primary" value="PAY NOW"></td>{% endif %}
+    </tr>
+    <tr> <td>PAYED AMOUNT : {{pamt}} /- </td>
+   <td> PENDING AMOUNT : {{damt}} /- </td></tr>
+    <tr>
+      <td><a href="#">DISCOUNT</a></td><td style="width:200px;" class="form-control">{{d}}/-</td>
+    </tr>
+       <tr>
+      <td><a href="#">GST IN PERCENTAGE</a></td><td style="width:200px;" class="form-control">{{gst}} %</td>
+    </tr>
+    <tr>
+      <td><a href="#">GRAND TOTAL</a></td><td style="width:200px;" class="form-control">{{gtot}} /-</td>
+    </tr>
+       <!--<tr>-->
+      <!--<td><a href="#">total amount / Month</a></td><td style="width:300px;" class="form-control">{{m}} /-</td>-->
+    <!--</tr>-->
+  </table>
+ </form>
+</body>
+{% endblock %}

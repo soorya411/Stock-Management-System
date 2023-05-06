@@ -1,28 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+{% extends 'index1.html' %}
+{% block body %}
 
 <body>
 <form id="form1" name="form1" method="post" action="add_prod">
-  <table width="260" border="1" align="center">
+  <table width="260" border="1" align="center" class="table table-striped">
     <tr>
-      <td colspan="7"><label>
+      <td colspan="9"><label>
         <div align="right">
-          <input type="submit" name="Submit" value="Add" />
+          <input type="submit" name="Submit" value="Add" class="btn btn-primary"/>
           </div>
       </label></td>
     </tr>
     <tr>
-      <td width="51"><div align="center"> product name </div></td>
-      <td width="52"><div align="center">category</div></td>
-      <td width="30"><div align="center">price</div></td>
-      <td width="30"><div align="center">MRP</div></td>
-      <td width="47"><div align="center">quantity</div></td>
-      <td width="47"><div align="center">stock count</div></td>
-      <td width="47"><div align="center">image</div></td>
+      <td width="300"><div align="center"> product name </div></td>
+      <td width="100"><div align="center">category</div></td>
+      <td width="100"><div align="center">price</div></td>
+      <td width="100"><div align="center">MRP</div></td>
+      <td width="100"><div align="center">quantity</div></td>
+      <td width="100"><div align="center">stock count</div></td>
+      <td width="100"><div align="center">image</div></td>
       <td></td>
       
     </tr>
@@ -35,8 +31,8 @@
       <td>{{i.quantity}}</td>
       <td>{{i.stock}}</td>
       <td><img src="../media/{{i.image}}" height="100" width="100" alt=""/></td>
-      <td><p><a href="{% url 'update_prod' id=i.id %}">edit</a></p>
-      <p><a href="{% url 'delete_prod' id=i.id %}">delete</a></p></td>
+      <td><p><a href="{% url 'update_prod' id=i.id %}" width="200" class="btn btn-primary">edit</a></p>
+      <p><a href="{% url 'delete_prod' id=i.id %}" width="100" class="btn btn-danger">delete</a></p></td>
     </tr>
     {% endfor %}
 
@@ -44,4 +40,4 @@
 
 </form>
 </body>
-</html>
+{% endblock %}

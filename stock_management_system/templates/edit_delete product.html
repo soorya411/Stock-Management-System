@@ -1,30 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+{% extends 'index1.html' %}
+{% block body %}
 
 <body>
 <form id="form1" name="form1" method="post"  enctype="multipart/form-data"    action="{% url 'update' %}">
-  <table width="200" border="1">
+  <table width="200" border="1" class="table table-striped">
     <tr>
       <td colspan="2"><div align="center">Add product </div></td>
     </tr>
     <tr>
       <td> Product Name  </td>
       <td><label>
-        <input type="text" name="textfield"  value="{{val.name}}"/>
+        <input type="text" name="textfield"  value="{{val.name}}" required/>
       </label></td>
     </tr>
     <tr>
       <td>Category</td>
       <td><label>
         <div align="right">
-          <select name="select">
-            <option {% if val.category == 'Ice cream' %} selected {% endif %}>Ice cream</option>
-            <option {% if val.category == 'Biscuit' %} selected {% endif %}>Biscuit</option>
-            <option {% if val.category == 'Chocolate' %} selected {% endif %}>Chocolate</option>
+          <select name="select" required>
+             {% for i in v %}
+             <option value="{{i.id}}">{{i.category_name}}</option>
+            {% endfor %}
           </select>
           </div>
       </label></td>
@@ -32,19 +28,19 @@
     <tr>
       <td>Quantity</td>
       <td><label>
-        <input type="text" name="textfield2" value="{{val.quantity}}" />
+        <input type="text" name="textfield2" value="{{val.quantity}}" required/>
       </label></td>
     </tr>
     <tr>
       <td>Tax %</td>
       <td><label>
-        <input type="text" name="textfield3" value="{{val.Tax}}"/>
+        <input type="text" name="textfield3" value="{{val.Tax}}" required/>
       </label></td>
     </tr>
     <tr>
       <td>Price</td>
       <td><label>
-        <input type="text" name="textfield4" value="{{val.price}}" />
+        <input type="text" name="textfield4" value="{{val.price}}" required/>
       </label></td>
     </tr>
     <tr>
@@ -64,4 +60,4 @@
   <p>&nbsp;</p>
 </form>
 </body>
-</html>
+{% endblock %}

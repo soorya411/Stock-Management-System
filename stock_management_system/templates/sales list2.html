@@ -1,0 +1,29 @@
+{% extends 'index1.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <p><a href="#"></a></p>
+  <table width="200" border="1" class="table table-striped">
+      <tr align="CENTER">
+        <td colspan="5"><a href="#"><H1>SALES REPORT</H1></a></td>
+    </tr>
+    <tr>
+      <td><a href="#">Total no.of sales of the Day</a></td><td style="width:300px;" class="form-control">{{v}}</td>
+    </tr>
+    <tr>
+      <td><a href="#">Total no.of sales of the Month</a></td><td style="width:300px;" class="form-control">{{v1}}</td>
+    </tr>
+    <tr>
+      <td><a href="#">total orders of the Year</a></td><td style="width:300px;" class="form-control">{{c}}</td>
+    </tr>
+    <tr>
+      <td><a href="#">total amount / Day</a></td><td style="width:300px;" class="form-control">{{tot}} /-</td>
+    </tr>
+       <tr>
+      <td><a href="#">total amount / Month</a></td><td style="width:300px;" class="form-control">{{m}} /-</td>
+    </tr>
+  </table>
+  <p>  <a href="#"></a></p>
+</form>
+</body>
+{% endblock %}

@@ -4,7 +4,7 @@ body {
 .page-content {
 	width: 100%;
 	margin:  0 auto;
-	background: #ffffff;
+	background: #5eb2b3;
 	display: flex;
 	display: -webkit-flex;
 	justify-content: center;
@@ -19,8 +19,8 @@ body {
 	-webkit-align-items: center;
 }
 .form-v5-content  {
-	background: #ec85a8;
-	width: 570px;
+	background: #fff;
+	width: 670px;
 	border-radius: 10px;
 	-o-border-radius: 8px;
 	-ms-border-radius: 8px;
@@ -31,10 +31,10 @@ body {
 	color: #333;
 	font-weight: 400;
 	position: relative;
-	font-size: 15px;
+	font-size: 18px;
 }
 .form-v5-content .form-detail {
-	padding: 0px 25px 0px 25px;
+	padding: 0px 45px 0px 45px;
 	position: relative;
 }
 .form-detail h2 {

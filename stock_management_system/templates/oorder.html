@@ -1,26 +1,15 @@
-
-{% extends 'shophomeindex.html' %}
-
+{% extends 'index3.html' %}
 {% block body %}
-
 <body>
 <form id="form1" name="form1" method="post" action="{% url 'orderproduct' %}">
-  <table width="200" border="1">
+  <table width="200" border="1" class="table table-striped">
     <tr>
-      <td><label>QTY
-          <input type="text" name="textfield" />
-      </label></td>
-    </tr>
-    <tr>
-      <td><label>
-        <div align="center">
-          <input type="submit" name="Submit" value="SEND" />
-          </div>
-      </label></td>
-    </tr>
-  </table>
+      <td><CENTER>ENTER QUANTITY  :<label>
+          <input type="text" name="textfield" class="form-control" style="WIDTH:600PX;HEIGHT:70PX;" required/>
+      </label></CENTER></td>
+    </tr></table>
+  <div align="center">
+          <input type="submit" name="Submit" value="SEND" class="btn btn-primary BTN-LG"/></div>
 </form>
-
-
 </body>
 {% endblock %}

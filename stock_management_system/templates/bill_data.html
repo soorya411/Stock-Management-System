@@ -1,0 +1,29 @@
+{% extends 'index3.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="{% url 'paymt' %}">
+  <table width="200" border="1" class="table table-striped">
+    <tr align="center"><td colspan="3">BILL NO. {{bid}}</td></tr>
+    <tr>
+      <td>PRODUCT </td>
+      <td>PRICE </td>
+      <td>QUANTITY</td>
+    </tr>
+    {% for  i in val %}
+    <tr>
+      <td>{{i.pid.pid.name}}</td>
+      <td>{{i.pid.pid.MRP}}</td>
+      <td>{{i.quantity}}</td>
+    </tr>
+    {% endfor %}
+          <tr><td>GST IN PRCENTAGE  :- {{gst}}(%)</td><td colspan="2"> TOTAL AMOUNT:- {{tot}}/-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            GRAND TOTAL :- {{gtot}}/-</td></tr>
+  </table>
+  <br>
+  <div align="center">
+    <input type="submit" value="PAY NOW">
+  </div>
+</form>
+</body>
+{% endblock %}

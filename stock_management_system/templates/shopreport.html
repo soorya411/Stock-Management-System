@@ -1,24 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
+{% extends 'index3.html' %}
+{% block body %}
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="200" border="1">
-    <tr>
-      <td><a href="#">Total sales</a></td>
+  <table width="200" border="1" class="table table-striped">
+     <tr align="CENTER">
+        <td colspan="5"><a href="#"><H1>PURCHASE REPORT(MONTH)</H1></a></td>
     </tr>
     <tr>
-      <td><a href="#">Total amount</a></td>
+      <td><a href="#">Total sales</a></td><td style="width:300px;" class="form-control">{{v}}</td>
     </tr>
     <tr>
-      <td><a href="#">Product demand</a></td>
+      <td><a href="#">Total amount</a></td><td style="width:300px;" class="form-control">{{m}} /-</td>
+    </tr>
+    <tr align="center">
+      <td colspan="5"><a href="#"><h3>PRODUCT DEMAND</h3></a></td>
+    </tr>
+     <tr>
+      <td>{{pd}}
+        <a href="../media/{{im}}" width="100" height="100"><img src="../media/{{im}}" style="border-radius: 50%;" width="100" height="100"/> </a>
+
+      </td><td >SALED COUNT -: {{cnt}}</td>
     </tr>
   </table>
   <a href="#"></a>
 </form>
 </body>
-</html>
+{% endblock %}

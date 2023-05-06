@@ -50,7 +50,7 @@
 @font-face {
     font-family: 'Roboto';
     src: url('../fonts/Roboto/Roboto-BlackItalic.ttf') format('truetype');
-    font-weight: 800;
+    font-weight: 900;
     font-style: italic;
 }
 
@@ -64,7 +64,7 @@
 @font-face {
     font-family: 'Roboto';
     src: url('../fonts/Roboto/Roboto-Black.ttf') format('truetype');
-    font-weight: 800;
+    font-weight: 900;
     font-style: normal;
 }
 

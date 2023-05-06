@@ -1,0 +1,46 @@
+{% extends 'index3.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="user_order2">
+  <table width="200" border="0" class="table table-striped">
+      <td colspan="5">CATEGORY :<label>
+
+            <div align="right">
+          <select name="select" required class="form-control" style="width:500px;">
+            {% for i in val %}
+            <option value="{{i.id}}">{{i.category_name}}</option>
+            {% endfor %}
+          </select>
+          </div>
+      </label>
+              <input type="submit" name="Submit" value="Search" style="width:150px;" class="btn btn-primary">
+</td>
+
+    </tr>
+    <tr>
+      <td><label>
+        Product
+      </label></td>
+      <td><label>
+        image
+      </label></td>
+      <td><label>unit price </label></td>
+      <td><label>qty</label></td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in v %}
+    <tr>
+      <td>{{i.pid.name}}</td>
+      <td><a href="{{i.pid.image.url}}" width="100" height="100"><img src="{{i.pid.image.url }}" style="border-radius: 50%;" width="100" height="100"/> </a></td>
+      <td>{{i.pid.MRP}}</td>
+      <td>{{i.stock}}</td>
+      <td><label>
+        <div align="right"><a href="{% url 'user_order3' id=i.id %}" class="btn btn-primary">order now</a></div>
+      </label></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

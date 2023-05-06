@@ -1,28 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
-
+{% extends 'index3.html' %}
+{% block body %}
 <body>
 <form id="form1" name="form1" method="post" action="">
   <p><a href="#"></a></p>
-  <table width="200" border="1">
-    <tr>
-      <td><a href="#">total sales</a></td>
+  <table width="200" border="1" class="table table-striped">
+      <tr align="CENTER">
+        <td colspan="5"><a href="#"><H1>SALES REPORT</H1></a></td>
     </tr>
     <tr>
-      <td><a href="#">total shop</a></td>
+      <td><a href="#">Total no.of sales of the Day</a></td><td style="width:300px;" class="form-control">{{v}}</td>
     </tr>
     <tr>
-      <td><a href="#">total order</a></td>
+      <td><a href="#">Total no.of sales of the Month</a></td><td style="width:300px;" class="form-control">{{v1}}</td>
     </tr>
     <tr>
-      <td><a href="#">total amount</a></td>
+      <td><a href="#">total orders of the Year</a></td><td style="width:300px;" class="form-control">{{c}}</td>
+    </tr>
+    <tr>
+      <td><a href="#">total amount / Day</a></td><td style="width:300px;" class="form-control">{{tot}} /-</td>
+    </tr>
+       <tr>
+      <td><a href="#">total amount / Month</a></td><td style="width:300px;" class="form-control">{{m}} /-</td>
     </tr>
   </table>
   <p>  <a href="#"></a></p>
 </form>
 </body>
-</html>
+{% endblock %}

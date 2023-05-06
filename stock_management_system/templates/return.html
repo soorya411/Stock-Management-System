@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
-</head>
-
+{% extends 'index1.html' %}
+{% block body %}
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="200" border="1">
+  <table width="200" border="1"  class="table table-striped">
     <tr>
       <td>date</td>
       <td>shop name </td>
@@ -15,14 +10,26 @@
       <td>quantity</td>
       <td>status</td>
     </tr>
+    {% for i in v %}
+      {% if i.orderstatus == 'requested' or i.orderstatus == 'returned' or  i.orderstatus == 'rejected' %}
     <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
+      <td>&nbsp;{{i.date}}</td>
+      <td>&nbsp;{{i.sid.name}}</td>
+      <td>&nbsp;{{i.pid.name}}</td>
+      <td>&nbsp;{{i.Count}}</td>
+<td>
+        {% if i.orderstatus == 'requested' %}
+
+        <p><a href="{% url 'aprv' id=i.id %}" class="btn btn-primary">APPROVE</a></p>
+        <p><a href="{% url 'rjt' id=i.id %}" class="btn btn-danger">REJECT</a></p>
+          {% else %}
+    <a class="btn btn-danger">{{i.orderstatus}}</a>
+        {% endif %}
+
+    </td>    </tr>
+    {% endif %}
+    {% endfor %}
   </table>
 </form>
 </body>
-</html>
+{% endblock %}
